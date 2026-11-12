@@ -1,0 +1,257 @@
+
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+<!-- 1. Banner -->
+<section class="home-banner">
+    {% if page.banner_image %}
+        {% image page.banner_image original as banner %}
+        <img src="{{ banner.url }}" alt="" class="banner-background">
+    {% endif %}
+
+    <div class="banner-content">
+        {% if page.banner_heading %}
+            <h1>{{ page.banner_heading }}</h1>
+        {% endif %}
+
+        {% if page.banner_text %}
+            <p>{{ page.banner_text }}</p>
+        {% endif %}
+
+        {% if page.banner_button_text %}
+            <button type="button" class="banner-button">
+                {{ page.banner_button_text }}
+            </button>
+        {% endif %}
+    </div>
+</section>
+
+
+<!-- 2. Intro section -->
+<section class="intro-section">
+    {% if page.intro_content %}
+        <div class="intro-content">
+            {{ page.intro_content|richtext }}
+        </div>
+    {% endif %}
+</section>
+
+
+<!-- 3. First image and content section -->
+<section class="content-section">
+    <div class="content-text">
+        {{ page.content|richtext }}
+        {% if page.content_button_one_text %}
+            <button type="button" class="site-button">
+                {{ page.content_button_one_text }}
+            </button>
+        {% endif %}
+        {% if page.content_button_two_text %}
+            <button type="button" class="site-button">
+                {{ page.content_button_two_text }}
+            </button>
+        {% endif %}
+    </div>
+
+    {% if page.content_image %}
+        {% image page.content_image original as content_img %}
+        <div class="content-image">
+            <img src="{{ content_img.url }}" alt="">
+        </div>
+    {% endif %}
+</section>
+
+
+<!-- 4. Three cards -->
+<section class="cards-section">
+    <h2>Our Services</h2>
+
+    <div class="cards-container">
+        {% for item in page.cards %}
+            <article class="service-card">
+                {% if item.value.image %}
+                    {% image item.value.image fill-600x400 as card_image %}
+                    <img src="{{ card_image.url }}" alt="">
+                {% endif %}
+
+                <div class="card-content">
+                    <h3>{{ item.value.heading }}</h3>
+                    <div>{{ item.value.text|richtext }}</div>
+                    <button type="button" class="site-button">
+                        {{ item.value.button_text }}
+                    </button>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+
+<!-- 5. Reuse the intro content -->
+<section class="intro-section intro-section-repeat">
+    {% if page.intro_content %}
+        <div class="intro-content">
+            {{ page.intro_content|richtext }}
+        </div>
+    {% endif %}
+</section>
+
+
+<!-- 6. Second image and content section -->
+<section class="content-section">
+    <div class="content-text">
+        {{ page.content_two|richtext }}
+        {% if page.content_button_three_text %}
+            <button type="button" class="site-button">
+                {{ page.content_button_three_text }}
+            </button>
+        {% endif %}
+    </div>
+
+    {% if page.content_image_two %}
+        {% image page.content_image_two original as content_img_two %}
+        <div class="content-image">
+            <img src="{{ content_img_two.url }}" alt="">
+        </div>
+    {% endif %}
+</section>
+
+
+<!-- 7. First image overlay -->
+<section class="overlay-section">
+    {% if page.overlay_image %}
+        {% image page.overlay_image original as overlay_img %}
+        <img src="{{ overlay_img.url }}" alt="" class="overlay-background">
+    {% endif %}
+
+    <div class="overlay-box overlay-left">
+        {{ page.overlay_content|richtext }}
+        {% if page.overlay_button_text %}
+            <button type="button" class="site-button">
+                {{ page.overlay_button_text }}
+            </button>
+        {% endif %}
+    </div>
+</section>
+
+
+<!-- 8. Customer reviews -->
+<section class="reviews-section">
+    <h2>What People Are Saying About Us</h2>
+
+    <div class="reviews-container">
+        {% for item in page.reviews %}
+            <article class="review-card">
+                <div class="review-text">
+                    {{ item.value.review|richtext }}
+                </div>
+                <h3>{{ item.value.customer_name }}</h3>
+            </article>
+        {% empty %}
+            <p>Customer reviews will appear here.</p>
+        {% endfor %}
+    </div>
+</section>
+
+
+<!-- 9. Second image overlay -->
+<section class="overlay-section">
+    {% if page.overlay_image_two %}
+        {% image page.overlay_image_two original as overlay_img_two %}
+        <img src="{{ overlay_img_two.url }}" alt="" class="overlay-background">
+    {% endif %}
+
+    <div class="overlay-box overlay-right">
+        {{ page.overlay_content_two|richtext }}
+        {% if page.overlay_button_two_text %}
+            <button type="button" class="site-button">
+                {{ page.overlay_button_two_text }}
+            </button>
+        {% endif %}
+    </div>
+</section>
+
+
+<!-- 10. Blog cards -->
+<section class="blogs-section">
+    <h2>Over Residential Blogs</h2>
+
+    <div class="cards-container">
+        {% for item in page.blog_cards %}
+            <article class="blog-card">
+                {% if item.value.image %}
+                    {% image item.value.image fill-600x400 as blog_image %}
+                    <img src="{{ blog_image.url }}" alt="">
+                {% endif %}
+
+                <div class="card-content">
+                    <div>{{ item.value.text|richtext }}</div>
+                    <button type="button" class="site-button">
+                        {{ item.value.button_text }}
+                    </button>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+
+<!-- 11. Third image overlay -->
+<section class="overlay-section">
+    {% if page.overlay_image_three %}
+        {% image page.overlay_image_three original as overlay_img_three %}
+        <img src="{{ overlay_img_three.url }}" alt="" class="overlay-background">
+    {% endif %}
+
+    <div class="overlay-box overlay-left">
+        {{ page.overlay_content_three|richtext }}
+        {% if page.overlay_button_three_text %}
+            <button type="button" class="site-button">
+                {{ page.overlay_button_three_text }}
+            </button>
+        {% endif %}
+    </div>
+</section>
+
+
+<!-- 12. Static text and button -->
+<section class="static-cta-section">
+    <div class="static-cta-text">
+        <h2>Ready to Build Your Perfect Door?</h2>
+        <p>Explore your options and find the right door for your home.</p>
+    </div>
+
+    <button type="button" class="site-button">
+        Get Started
+    </button>
+</section>
+
+
+<!-- 13. Four-image row -->
+<section class="image-gallery">
+    {% if page.image_one %}
+        {% image page.image_one fill-400x300 as gallery_one %}
+        <img src="{{ gallery_one.url }}" alt="">
+    {% endif %}
+
+    {% if page.image_two %}
+        {% image page.image_two fill-400x300 as gallery_two %}
+        <img src="{{ gallery_two.url }}" alt="">
+    {% endif %}
+
+    {% if page.image_three %}
+        {% image page.image_three fill-400x300 as gallery_three %}
+        <img src="{{ gallery_three.url }}" alt="">
+    {% endif %}
+
+    {% if page.image_four %}
+        {% image page.image_four fill-400x300 as gallery_four %}
+        <img src="{{ gallery_four.url }}" alt="">
+    {% endif %}
+</section>
+
+{% endblock content %}

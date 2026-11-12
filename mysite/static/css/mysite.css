@@ -1,0 +1,1433 @@
+
+
+/* Reference website colors */
+:root {
+    --olive: #757a5e;
+    --white: #fff;
+    --black: #000000;
+    --green: #1c6f3c;
+    --blue: #0c1138;
+    --dark-grey: #333;
+    --light-blue: #2E3A88;
+    --light-green: #49A76B;
+    --grey: #eeeeee;
+}
+
+/* Base styling inspired by the reference */
+body {
+    background-color: var(--white);
+    color: var(--black);
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 19px;
+    line-height: 1.58;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Land Rover OT4", Arial, sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* ========================================
+   1. GLOBAL HOMEPAGE STYLES
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f7f8fa;
+    color: #263238;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+}
+
+section {
+    padding: 70px 6%;
+}
+
+h1,
+h2,
+h3 {
+    color: #17324d;
+    line-height: 1.25;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+}
+
+p {
+    margin-top: 0;
+}
+
+.site-button,
+.banner-button {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #176b68;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease,
+                transform 0.25s ease;
+}
+
+.site-button:hover,
+.banner-button:hover {
+    background-color: #104e4c;
+    transform: translateY(-2px);
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.site-header > .container {
+    max-width: 1500px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.site-header .row {
+    row-gap: 12px;
+}
+
+/* Website name / logo */
+.site-header .col:first-child {
+    height: 30px;
+    width: 250px;
+    color: #0c1138;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* Store-to-door service text */
+.site-header .text-end > span {
+    color: #333333;
+    font-size: 14px;
+}
+
+/* Phone button */
+.site-header .btn-outline-dark {
+    background-color: #0c0f30;
+    border-color: #0c1138;
+    border-radius: 0;
+    color: #f9f9fa;
+    font-weight: 600;
+}
+
+.site-header .btn-outline-dark:hover {
+    background-color: #0c1138;
+    color: #ffffff;
+}
+
+/* Build the door button */
+.site-header .btn-success {
+    border-color: #1c6f3c;
+    border-radius: 0;
+    background-color: #1c6f3c;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 20px;
+}
+
+.site-header .btn-success:hover {
+    border-color: #0c1138;
+    background-color: #0c1138;
+}
+
+
+
+/* =====================================
+   NAVIGATION BAR
+===================================== */
+
+.site-header + .navbar {
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 120px; /* We'll adjust this below */
+    z-index: 1030;
+    width: 100%;
+    padding: 0;
+    border-bottom: 1px solid #757a5e;
+    background-color: #ffffff !important;
+}
+
+.site-header + .navbar > .container {
+    max-width: 1500px;
+}
+
+.site-header + .navbar .navbar-nav {
+    align-items: stretch;
+}
+
+.site-header + .navbar .nav-link {
+    padding: 17px 12px;
+    color: #0c1138 !important;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.site-header + .navbar .nav-link:hover,
+.site-header + .navbar .nav-link:focus {
+    background-color: #f0f1ec;
+    color: #1c6f3c !important;
+    border-bottom: 2px solid #1c6f3c;
+}
+
+
+/* Dropdown menu */
+.site-header + .navbar .dropdown-menu {
+    margin-top: 0;
+    padding: 8px 0;
+    border: 1px solid #eeeeee;
+    border-radius: 0;
+    box-shadow: 0 8px 20px rgba(12, 17, 56, 0.12);
+}
+
+.site-header + .navbar .dropdown-item {
+    padding: 10px 18px;
+    color: #0c1138;
+    font-size: 14px;
+}
+
+.site-header + .navbar .dropdown-item:hover {
+    background-color: #f0f1ec;
+    color: #1c6f3c;
+}
+.site-logo {
+    display: block;
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* =====================================
+   RESPONSIVE HEADER
+===================================== */
+
+@media (max-width: 991px) {
+    .site-header {
+        position: relative;
+    }
+
+    .site-header .col:first-child {
+        font-size: 22px;
+    }
+
+    .site-header .text-end {
+        text-align: left !important;
+    }
+
+    .site-header + .navbar {
+        position: relative;
+    }
+
+    .site-header + .navbar .navbar-nav {
+        align-items: flex-start;
+    }
+
+    .site-header + .navbar .nav-link {
+        padding: 12px 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .site-header > .container {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .site-header .text-end > span {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .site-header .text-end .btn {
+        margin-top: 5px;
+    }
+}
+
+/* Vertically center header content */
+.site-header .row {
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+}
+
+.site-header .col {
+    display: flex;
+    align-items: center;
+}
+
+.site-header .text-end {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Round the header buttons */
+.site-header .btn-outline-dark,
+.site-header .btn-success {
+    border-radius: 8px;
+    height: 50px ;
+    display: flex;
+    justify-content: center;
+}
+
+/* Keep the button spacing tidy */
+.site-header .text-end .btn {
+    margin-right: 20px !important;
+    
+}
+
+
+/* ========================================
+   2. HERO / BANNER
+======================================== */
+
+.home-banner {
+    position: relative;
+    display: flex;
+    min-height: 520px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #17324d, #176b68);
+    color: #ffffff;
+    text-align: center;
+}
+
+.banner-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-banner::after {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 25, 40, 0.58);
+    content: "";
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    width: min(800px, 100%);
+    padding: 30px 15px;
+}
+
+.banner-content h1 {
+    margin: 0 0 20px;
+    color: #ffffff;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.banner-content p {
+    margin-bottom: 28px;
+    color: #ffffff;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.banner-button {
+    background-color: #e4b66a;
+    color: #17324d;
+}
+
+.banner-button:hover {
+    background-color: #f0ca8a;
+}
+
+
+/* ========================================
+   3. INTRO SECTIONS
+======================================== */
+
+.intro-section {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.intro-content {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.intro-content h2 {
+    margin-bottom: 20px;
+}
+
+.intro-section-repeat {
+    background-color: #edf4f3;
+}
+
+
+/* ========================================
+   4. IMAGE + CONTENT SECTIONS
+======================================== */
+
+.content-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 50px;
+    background-color: #f7f8fa;
+}
+
+.content-text {
+    min-width: 0;
+}
+
+.content-text h2 {
+    margin-bottom: 20px;
+}
+
+.content-image img {
+    display: block;
+    width: 100%;
+    max-height: 480px;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 12px 30px rgba(23, 50, 77, 0.12);
+}
+
+.content-text .site-button {
+    margin: 10px 10px 0 0;
+}
+
+
+/* ========================================
+   5. SERVICE AND BLOG CARDS
+======================================== */
+
+.cards-section,
+.blogs-section {
+    background-color: #edf4f3;
+    text-align: center;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.service-card,
+.blog-card {
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 20px rgba(23, 50, 77, 0.08);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.service-card:hover,
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(23, 50, 77, 0.14);
+}
+
+.service-card > img,
+.blog-card > img {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 24px;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.card-content .site-button {
+    margin-top: 12px;
+}
+
+
+/* ========================================
+   6. IMAGE OVERLAY SECTIONS
+======================================== */
+
+.overlay-section {
+    position: relative;
+    display: flex;
+    min-height: 430px;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #17324d, #176b68);
+}
+
+.overlay-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-section::before {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(10, 25, 40, 0.35);
+    content: "";
+}
+
+.overlay-box {
+    position: relative;
+    z-index: 2;
+    width: min(480px, 100%);
+    padding: 32px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.overlay-left {
+    margin-right: auto;
+}
+
+.overlay-right {
+    margin-left: auto;
+}
+
+.overlay-box h2 {
+    margin-bottom: 18px;
+}
+
+.overlay-box .site-button {
+    margin-top: 10px;
+}
+
+
+/* ========================================
+   7. CUSTOMER REVIEWS
+======================================== */
+
+.reviews-section {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review-card {
+    padding: 28px;
+    border: 1px solid #e2e9ec;
+    border-radius: 12px;
+    background-color: #f7f8fa;
+    text-align: left;
+}
+
+.review-text {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.review-card h3 {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+
+/* ========================================
+   8. STATIC CALL-TO-ACTION SECTION
+======================================== */
+
+.static-cta-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background-color: #17324d;
+    color: #ffffff;
+}
+
+.static-cta-text h2 {
+    color: #ffffff;
+}
+
+.static-cta-text p {
+    margin-bottom: 0;
+}
+
+.static-cta-section .site-button {
+    flex-shrink: 0;
+    background-color: #e4b66a;
+    color: #17324d;
+}
+
+
+/* ========================================
+   9. FOUR-IMAGE GALLERY
+======================================== */
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    background-color: #ffffff;
+}
+
+.image-gallery img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+/* ========================================
+   10. TABLET RESPONSIVENESS
+======================================== */
+
+@media (max-width: 900px) {
+    section {
+        padding: 55px 5%;
+    }
+
+    .cards-container,
+    .reviews-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .content-section {
+        gap: 28px;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-banner {
+        min-height: 440px;
+    }
+}
+
+
+/* ========================================
+   11. MOBILE RESPONSIVENESS
+======================================== */
+
+@media (max-width: 600px) {
+    section {
+        padding: 42px 20px;
+    }
+
+    .home-banner {
+        min-height: 380px;
+    }
+
+    .content-section {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .content-image {
+        order: 2;
+    }
+
+    .cards-container,
+    .reviews-container {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card > img,
+    .blog-card > img {
+        height: 220px;
+    }
+
+    .overlay-section {
+        min-height: 400px;
+        padding: 35px 20px;
+    }
+
+    .overlay-box {
+        width: 100%;
+        padding: 24px;
+    }
+
+    .static-cta-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .image-gallery img {
+        height: 150px;
+    }
+
+    .site-button,
+    .banner-button {
+        max-width: 100%;
+    }
+}
+
+/* Make homepage images fit their boxes */
+.content-image img,
+.service-card img,
+.blog-card img,
+.image-gallery img,
+.overlay-box img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+/* Content images */
+.content-image {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.content-image img {
+    height: 320px;
+}
+
+/* Service cards */
+.service-card {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.service-card img {
+    height: 220px;
+}
+
+/* Blog cards */
+.blog-card {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.blog-card img {
+    height: 220px;
+}
+
+/* Image gallery */
+.image-gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Overlay images */
+.overlay-box {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.overlay-box img {
+    height: 300px;
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+    .content-image img {
+        height: 240px;
+    }
+
+    .service-card img,
+    .blog-card img,
+    .image-gallery img {
+        height: 200px;
+    }
+
+    .overlay-box img {
+        height: 240px;
+    }
+}
+
+/* Homepage hero banner */
+.home-banner {
+    position: relative;
+    width: 100%;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.home-banner .banner-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.home-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.60)
+    );
+    z-index: 1;
+}
+
+.home-banner .banner-content {
+    position: relative;
+    z-index: 2;
+    width: min(90%, 900px);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.home-banner .banner-content h1 {
+    color: var(--white);
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.home-banner .banner-content p {
+    color: var(--white);
+    margin-bottom: 25px;
+}
+
+.home-banner .banner-button {
+    border: 1px solid var(--white);
+    background-color: var(--green);
+    color: var(--white);
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.home-banner .banner-button:hover {
+    background-color: var(--blue);
+}
+
+/* FOOTER */
+.site-footer {
+    background: #eeeeee;
+    color: #000;
+    font-family: "Open Sans", Arial, sans-serif;
+}
+
+.footer-brand {
+    min-height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 20px;
+    background: #eeeeee;
+    clip-path: polygon(0 35%, 50% 0, 100% 35%, 100% 100%, 0 100%);
+}
+
+.footer-main-logo {
+    display: block;
+    width: 250px;
+    max-width: 100%;
+    max-height: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-trust {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: center;
+    gap: 24px;
+    margin: 0 20px;
+    padding: 25px 20px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.trust-item img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 75px;
+    object-fit: contain;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1.15fr 1.2fr;
+    gap: 35px;
+    padding: 38px 25px;
+}
+
+.footer-column h3 {
+    margin: 0 0 18px;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.footer-column p,
+.footer-column a {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.footer-column p {
+    margin: 0 0 8px;
+}
+
+.footer-column > a {
+    display: block;
+    width: fit-content;
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    color: #1c6f3c;
+}
+
+.newsletter-form {
+    display: flex;
+    width: 100%;
+    margin-top: 24px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 12px;
+    border: 1px solid #d0d3dc;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+}
+
+.newsletter-form button {
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    background: #0c1138;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .footer-trust {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .footer-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    .footer-brand {
+        min-height: 135px;
+    }
+
+    .footer-trust {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 15px;
+        margin: 0 10px;
+        padding: 20px 12px;
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 28px 18px;
+    }
+}
+/* ===== Measuring page ===== */
+
+.measure-hero {
+  position: relative;
+  aspect-ratio: 2 / 1;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  background-size: cover;
+  background-position: center;
+}
+
+.measure-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.measure-hero__title {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-weight: 600;
+  font-size: 2.25rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin: 0;
+}
+.measure-body { padding: 60px 12px; }
+.measure-section { margin-bottom: 40px; }
+.measure-heading { font-weight: 700; margin-bottom: 20px; }
+.measure-fulltext { margin-bottom: 40px; }
+.measure-btn {
+  background: #0d1033;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 4px;
+}
+.measure-btn:hover { background: #1a1f5c; color: #fff; }
+/* ===== Door Builder page ===== */
+.door-page { padding: 50px 16px; }
+.door-page__title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.door-card {
+  height: 100%;
+  background: #fff;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.door-card:hover { border-color: #000; }
+.door-card__img {
+  position: relative;
+  border-bottom: 3px solid #111;
+}
+.door-card__img img { width: 100%; height: auto; display: block; }
+.door-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(225, 225, 225, 0.92);
+  color: #222;
+  border: 1px solid #bbb;
+  font-size: 1rem;
+  padding: 10px 12px;
+  z-index: 2;
+}
+.door-card__body { padding: 36px 40px 44px; }
+.door-card__name {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 22px;
+}
+.door-card__price {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.door-card__btn {
+  display: inline-block;
+  background: #1b6e3c;
+  color: #fff;
+  padding: 14px 34px;
+  margin-top: 6px;
+  border-radius: 4px;
+  font-size: 1.1rem;
+}
+.door-card__btn:hover { background: #14552d; color: #fff; }
+.door-page__bottom { text-align: center; max-width: 900px; margin: 60px auto 0; }
+.door-page__bottom h2 { font-weight: 700; margin-bottom: 20px; }
+/* ===== FAQ page ===== */
+.faq-page { padding: 60px 12px 90px; }
+.faq-page__title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 24px;
+}
+.faq-page__intro {
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 50px;
+}
+.faq-page__intro p { margin-bottom: 0; }
+
+.faq-accordion {
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23212529' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2327a35a' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+}
+.faq-accordion .accordion-item {
+  border: 2px solid #e9e9e9;
+  border-top: 2px solid #e9e9e9;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  background: #fff;
+  overflow: hidden;
+}
+.faq-accordion .accordion-button {
+  font-weight: 600;
+  font-size: 1.15rem;
+  padding: 18px 36px;
+  background: #fff;
+  color: #111;
+  box-shadow: none;
+}
+.faq-accordion .accordion-button:not(.collapsed) {
+  background: #fff;
+  color: #111;
+  box-shadow: none;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.faq-accordion .accordion-button:focus { box-shadow: none; }
+.faq-accordion .accordion-body {
+  padding: 24px 36px 28px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+.faq-accordion .accordion-body p:last-child { margin-bottom: 0; }
+
+/* ===== Door category pages (Residential / Commercial) ===== */
+.cat-section {
+  background: #f8f9fa;
+  padding: 70px 24px 60px;
+}
+.cat-section__title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+}
+.cat-card {
+  width: 350px;
+  margin: 10px;
+  height: 100%;
+  background: #f8f9fa;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+.cat-card__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.cat-card__body { padding: 28px 24px 40px; }
+.cat-card__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.cat-card__body p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+.cat-card__btn {
+  background: #1b6e3c;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 4px;
+}
+.cat-card__btn:hover { background: #14552d; color: #fff; }
+.cat-section__more { margin-top: 50px; }
+.cat-more-btn {
+  background: #0d1033;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 4px;
+}
+.cat-more-btn:hover { background: #1a1f5c; color: #fff; }
+
+
+/* ===== Commercial page ===== */
+.com-section { padding: 70px 24px 90px; }
+.com-heading {
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1.25;
+  margin-bottom: 24px;
+}
+.com-text { font-size: 1.15rem; line-height: 1.6; }
+.com-text p { margin-bottom: 22px; }
+.com-btn {
+  background: #1b6e3c;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.com-btn:hover { background: #14552d; color: #fff; }
+
+.com-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 36px 24px 32px;
+  background: #fff;
+}
+.com-card__title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.25;
+  margin-bottom: 28px;
+}
+.com-form label {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.com-form .com-address-label { padding-top: 12px; }
+.com-form .com-address-label label { margin-bottom: 0; }
+.com-form .form-control {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-height: 50px;
+  padding: 10px 14px;
+}
+.com-form textarea.form-control { min-height: 120px; }
+.com-form .errorlist {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  color: #b00020;
+  font-size: 0.9rem;
+}
+.com-submit {
+  background: #1b6e3c;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 4px;
+  margin-top: 22px;
+}
+.com-submit:hover { background: #14552d; color: #fff; }
+
+
+/* ===== Specials page ===== */
+.sp-section { padding: 70px 24px 140px; }
+.sp-heading {
+  font-weight: 700;
+  font-size: 2.8rem;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.sp-sub {
+  font-size: 2.2rem;
+  color: #1b6e3c;
+  margin: 0;
+}
+.sp-sub a { color: #1b6e3c; text-decoration: none; }
+.sp-sub a:hover { text-decoration: underline; }
+
+
+
+/* ===== Contact page tweaks ===== */
+.ct-text p { margin-bottom: 6px; }
+.ct-card { padding: 48px 36px 40px; }
+.ct-card .com-card__title { font-size: 2.4rem; margin-bottom: 32px; }
+
+
+
+/* ===== FINAL HEADER / FOOTER / GLOBAL FIXES ===== */
+
+/* --- Global --- */
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.58;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Rubik", Arial, sans-serif;
+  color: #000;
+}
+.container {
+  max-width: 1500px;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+
+/* --- Header --- */
+.site-header { border-bottom: 2px solid var(--olive); }
+.site-header > .container {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.site-header > .container > .row { flex: 1; }
+.site-header .col:first-child { height: auto; }
+.site-logo { width: 200px; }
+
+.site-header .text-end { gap: 18px; }
+.site-header .text-end > .header-service {
+  color: #000;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.site-header .text-end .btn {
+  height: 56px;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 4px;
+  margin-right: 0 !important;
+}
+
+/* --- Nav bar --- */
+.site-header + .navbar {
+  top: 122px;
+  border-bottom: 2px solid var(--olive);
+}
+.site-header + .navbar .navbar-nav { background: #f8f9fa; }
+.site-header + .navbar .nav-link {
+  color: #000 !important;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 12px 9px;
+}
+
+@media (max-width: 991px) {
+  .site-header > .container {
+    height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+/* --- Footer --- */
+.footer-brand {
+  min-height: 165px;
+  padding: 40px 20px 20px;
+  clip-path: polygon(0 58%, 50% 0, 100% 58%, 100% 100%, 0 100%);
+}
+.footer-main-logo { width: 200px; }
+.footer-trust { margin: 0 2.5%; }
+.trust-item img { max-width: 125px; max-height: 88px; }
+
+.footer-columns {
+  grid-template-columns: 1.5fr 1.5fr 1.5fr 1fr;
+  gap: 0;
+  padding: 55px 2.5% 40px;
+}
+.footer-column { padding-right: 10px; }
+.footer-column h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 22px;
+}
+.footer-column p,
+.footer-column a {
+  font-size: 19px;
+  line-height: 1.7;
+}
+.footer-column p a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  margin: 0 2.5%;
+  padding: 30px 0 45px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+.footer-bottom p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+.footer-bottom p:last-child { margin-bottom: 0; }
+
+@media (max-width: 900px) {
+  .footer-trust { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 20px;
+  }
+}
+@media (max-width: 550px) {
+  .footer-brand { min-height: 135px; }
+  .footer-trust {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0 10px;
+  }
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 28px 18px;
+  }
+}

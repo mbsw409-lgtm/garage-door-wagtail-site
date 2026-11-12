@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+<section class="measure-hero"
+  {% if page.hero_image %}
+    {% image page.hero_image width-2400 as hero_img %}
+    style="background-image: url('{{ hero_img.url }}');"
+  {% endif %}>
+  <h1 class="measure-hero__title">{{ page.hero_title }}</h1>
+</section>
+
+<div class="container com-section">
+  <div class="row g-5 align-items-start">
+
+    <div class="col-lg-6">
+      <h2 class="com-heading">{{ page.left_heading }}</h2>
+      <div class="com-text ct-text">{{ page.left_text|richtext }}</div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="com-card ct-card">
+        <h3 class="com-card__title">{{ page.form_heading }}</h3>
+
+        <form action="{% pageurl page %}" method="post" class="com-form">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+          <div class="row g-3">
+            <div class="col-md-6">{{ form.name }}{{ form.name.errors }}</div>
+            <div class="col-md-6">{{ form.email }}{{ form.email.errors }}</div>
+            <div class="col-12">{{ form.phone }}{{ form.phone.errors }}</div>
+            <div class="col-12">{{ form.message }}{{ form.message.errors }}</div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn com-submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

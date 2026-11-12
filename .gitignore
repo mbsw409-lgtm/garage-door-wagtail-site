@@ -1,0 +1,21 @@
+# Virtual environments
+venv/
+.venv/
+env/
+Venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Database and uploads
+db.sqlite3
+/media/
+
+# Collected static files (NOT mysite/static, which has your CSS)
+/static/
+
+# Secrets and editor files
+.env
+.vscode/
+*.log

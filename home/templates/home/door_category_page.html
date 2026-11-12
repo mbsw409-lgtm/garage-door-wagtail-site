@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+<section class="measure-hero"
+  {% if page.hero_image %}
+    {% image page.hero_image width-2400 as hero_img %}
+    style="background-image: url('{{ hero_img.url }}');"
+  {% endif %}>
+  <h1 class="measure-hero__title">{{ page.hero_title }}</h1>
+</section>
+
+<div class="container cat-section">
+  <h2 class="cat-section__title">{{ page.section_heading }}</h2>
+
+  <div class="row g-4">
+    {% for block in page.cards %}
+      {% with c=block.value %}
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="cat-card">
+          {% image c.image fill-600x400 class="cat-card__img" %}
+          <div class="cat-card__body">
+            <h3 class="cat-card__title">{{ c.title }}</h3>
+            {{ c.text|richtext }}
+            <a href="{% if c.link %}{{ c.link }}{% else %}#{% endif %}" class="btn cat-card__btn">View Door</a>
+          </div>
+        </div>
+      </div>
+      {% endwith %}
+    {% endfor %}
+  </div>
+
+  {% if page.view_all_link %}
+  <div class="text-center cat-section__more">
+    <a href="{{ page.view_all_link }}" class="btn cat-more-btn">View All Door</a>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

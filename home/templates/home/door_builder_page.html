@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+<div class="container door-page">
+  <h1 class="door-page__title">{{ page.heading }}</h1>
+
+  <div class="row g-4">
+    {% for door in doors %}
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="door-card">
+        <div class="door-card__img">
+          {% if door.on_sale %}<span class="door-card__badge">ON SALE</span>{% endif %}
+          {% if door.image %}
+            {% image door.image fill-600x480 class="img-fluid" %}
+          {% endif %}
+        </div>
+        <h3 class="door-card__name">{{ door.name }}</h3>
+        <p class="door-card__price">
+          From: ${{ door.from_price|cut:"$" }}
+          {% if door.regular_price %}
+            <br><small>Regular Price <s>${{ door.regular_price|cut:"$" }}</s></small>
+          {% endif %}
+        </p>
+        <a href="{% if door.link %}{{ door.link }}{% else %}#{% endif %}" class="btn door-card__btn">View Door</a>
+      </div>
+    </div>
+    {% empty %}
+      <p>No doors have been added yet.</p>
+    {% endfor %}
+  </div>
+
+  {% if page.bottom_heading or page.bottom_text %}
+  <div class="door-page__bottom">
+    {% if page.bottom_heading %}<h2>{{ page.bottom_heading }}</h2>{% endif %}
+    {{ page.bottom_text|richtext }}
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

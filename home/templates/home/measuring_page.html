@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+<section class="measure-hero"
+  {% if page.hero_image %}
+    {% image page.hero_image width-2400 as hero_img %}
+    style="background-image: url('{{ hero_img.url }}');"
+  {% endif %}>
+  <h1 class="measure-hero__title">{{ page.hero_title }}</h1>
+</section>
+
+<div class="container measure-body">
+  {% for block in page.body %}
+
+    {% if block.block_type == "image_text" %}
+      {% with v=block.value %}
+      <div class="row align-items-center g-5 measure-section">
+        <div class="col-md-6 {% if v.image_position == 'left' %}order-md-1{% else %}order-md-2{% endif %}">
+          {% if v.image %}
+            {% image v.image width-800 class="img-fluid" %}
+          {% endif %}
+        </div>
+        <div class="col-md-6 {% if v.image_position == 'left' %}order-md-2{% else %}order-md-1{% endif %}">
+          {% if v.heading %}<h2 class="measure-heading">{{ v.heading }}</h2>{% endif %}
+          {{ v.text|richtext }}
+          {% if v.button_text and v.button_link %}
+            <a href="{{ v.button_link }}" class="btn measure-btn">{{ v.button_text }}</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endwith %}
+
+    {% elif block.block_type == "full_text" %}
+      <div class="measure-fulltext">{{ block.value|richtext }}</div>
+    {% endif %}
+
+  {% endfor %}
+</div>
+
+{% endblock %}

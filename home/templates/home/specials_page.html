@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+<section class="measure-hero"
+  {% if page.hero_image %}
+    {% image page.hero_image width-2400 as hero_img %}
+    style="background-image: url('{{ hero_img.url }}');"
+  {% endif %}>
+  <h1 class="measure-hero__title">{{ page.hero_title }}</h1>
+</section>
+
+<div class="container sp-section">
+  <h2 class="sp-heading">{{ page.heading }}</h2>
+  {% if page.subheading %}
+    <p class="sp-sub">
+      {% if page.subheading_link %}
+        <a href="{{ page.subheading_link }}">{{ page.subheading }}</a>
+      {% else %}
+        {{ page.subheading }}
+      {% endif %}
+    </p>
+  {% endif %}
+</div>
+
+{% endblock %}
